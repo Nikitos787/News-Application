@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">My News Application</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="saved_news">Saved News</string>
+    <string name="breaking_news">Breaking News</string>
+    <string name="search_news">Search News</string>
+    <string name="search">Search...</string>
+    <string name="published_at">PUBLISHED AT</string>
+    <string name="description">Description</string>
+    <string name="title">Title</string>
+    <string name="source">SOURCE:</string>
+    <string name="image_for_article">image for article</string>
+    <string name="image_view">image view</string>
+</resources>
