@@ -16,6 +16,7 @@ import com.example.mynewsapplication.model.Article
 import com.example.mynewsapplication.model.NewsResponse
 import com.example.mynewsapplication.repository.NewsRepository
 import com.example.mynewsapplication.util.Resource
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import okio.IOException
 import retrofit2.Response
@@ -34,22 +35,22 @@ class NewsViewModel(private val newsRepository: NewsRepository, val app: Applica
     }
 
     fun getBreakingNews(countryCode: String) =
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             safeBreakingNewsCall(countryCode)
         }
 
     fun getSearchNews(searchQuery: String) =
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             safeSearchNewsCall(searchQuery)
         }
 
-    fun saveArticle(article: Article) = viewModelScope.launch {
+    fun saveArticle(article: Article) = viewModelScope.launch(Dispatchers.IO) {
         newsRepository.saveArticle(article)
     }
 
     fun getSavedNews() = newsRepository.getSavedArticles()
 
-    fun deleteArticle(article: Article) = viewModelScope.launch {
+    fun deleteArticle(article: Article) = viewModelScope.launch(Dispatchers.IO) {
         newsRepository.deleteArticle(article)
     }
 
